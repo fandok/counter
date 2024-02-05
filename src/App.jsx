@@ -1,16 +1,23 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "reactstrap";
 
 import AddButton from "./AddButton";
+import AddButtonAlt from "./AddButtonAlt";
 import MultiplyButton from "./MultiplyButton";
 import ResetButton from "./ResetButton";
-import { addCountAlt } from "./action/counterAlt";
+import { addCount } from "./action/counter";
 
 const App = () => {
   const dispatch = useDispatch();
 
+  // useEffect untuk update state di awal
+  useEffect(() => {
+    dispatch(addCount());
+  }, [dispatch]);
+
   // memanggil count dari redux
   const count = useSelector((state) => state.counter.count);
+  // manggil count alternatif dari redux
   const countAlt = useSelector((state) => state.counterAlt.count);
 
   return (
@@ -30,13 +37,7 @@ const App = () => {
         <ResetButton />
       </div>
       <h2>{countAlt}</h2>
-      <Button
-        onClick={() => {
-          dispatch(addCountAlt(count));
-        }}
-      >
-        Add
-      </Button>
+      <AddButtonAlt />
     </div>
   );
 };
