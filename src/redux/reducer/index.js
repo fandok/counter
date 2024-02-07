@@ -2,7 +2,7 @@
 import { combineReducers } from "redux";
 
 // reducer counter yang kita bikin
-import counterReducer from "./counter";
+import counterReducer from "../counterSlice";
 import counterAltReducer from "./counterAlt";
 
 const combinedReducers = combineReducers({

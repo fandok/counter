@@ -1,13 +1,13 @@
 import { useDispatch } from "react-redux";
 import { Button } from "reactstrap";
 
-import { resetCount } from "./action/counter";
+import { reset } from "./redux/counterSlice";
 
 const ResetButton = () => {
   const dispatch = useDispatch();
 
   const handleReset = () => {
-    dispatch(resetCount());
+    dispatch(reset());
   };
 
   return <Button onClick={handleReset}>Reset</Button>;
