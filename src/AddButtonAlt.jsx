@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "reactstrap";
 
-import { addCountAlt } from "./action/counterAlt";
+import { add } from "./redux/counterAltSlice";
 
 const AddButtonAlt = () => {
   // dispatch untuk menyambungkan dari button view ke action
@@ -10,7 +10,7 @@ const AddButtonAlt = () => {
   const count = useSelector((state) => state.counter.count);
 
   const handleAdd = () => {
-    dispatch(addCountAlt(count));
+    dispatch(add(count));
   };
 
   return <Button onClick={handleAdd}>Add</Button>;
